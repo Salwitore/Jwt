@@ -8,8 +8,9 @@ namespace Data.Enums
 {
     public enum Roles
     {
+        None,
         Admin,
         Manager,
-        User
+        Employee
     }
 }

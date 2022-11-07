@@ -12,25 +12,23 @@ namespace Data.EntityClasses
 {
     public class User
     {
-        [JsonIgnore]
+        
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Key,Column(Order = 0)]
-        public int UserId { get; set; }
+        [Key]
+        public int UserId { get; private set; }
         public string UserName { get; set; }
         public string UserSurname { get; set; }
         public string Email { get; set; }
         public  Roles  Role { get; set; }
+        public string UserPassword { get; set; }
+
+        
+        public string? Token { get; private set; }
 
 
-        [JsonIgnore]
-        public string? Token { get; set; }
+        
+        public ICollection<UserTicket>? UserTickets { get; private set; }
 
-
-        [JsonIgnore]
-        public IList<UserTicket>? UserTickets { get; set; }
-
-        [JsonIgnore]
-        public LoginUser? LoginUser { get; set; }
 
         
     }

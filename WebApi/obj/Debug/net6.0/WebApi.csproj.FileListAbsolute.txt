@@ -49,3 +49,9 @@ C:\Users\harun\source\repos\Beginner1\Data\WebApi\bin\Debug\net6.0\Microsoft.Ide
 C:\Users\harun\source\repos\Beginner1\Data\WebApi\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\harun\source\repos\Beginner1\Data\WebApi\bin\Debug\net6.0\Utils.dll
 C:\Users\harun\source\repos\Beginner1\Data\WebApi\bin\Debug\net6.0\Utils.pdb
+C:\Users\harun\source\repos\Beginner1\Data\WebApi\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\harun\source\repos\Beginner1\Data\WebApi\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\harun\source\repos\Beginner1\Data\WebApi\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\harun\source\repos\Beginner1\Data\WebApi\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+C:\Users\harun\source\repos\Beginner1\Data\WebApi\bin\Debug\net6.0\Castle.Core.dll
+C:\Users\harun\source\repos\Beginner1\Data\WebApi\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Proxies.dll

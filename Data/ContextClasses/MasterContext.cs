@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Data.ContextClasses
 
@@ -14,11 +15,14 @@ namespace Data.ContextClasses
         public DbSet<User> Users { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
         public DbSet<UserTicket> UserTickets { get; set; }
-        public DbSet<LoginUser> LoginUsers { get; set; }
+
+        
         protected override void OnConfiguring (DbContextOptionsBuilder optionsBuilder)
         {
+            //optionsBuilder.UseMySql("Server=127.0.0.1;Port=3306;Database=Service;Uid=root;Pwd=root;CharSet=utf8;", ServerVersion.AutoDetect("Server=127.0.0.1;Port=3306;Database=Service;Uid=root;Pwd=root;CharSet=utf8;"));
             optionsBuilder.UseMySql("Server=127.0.0.1;Port=3306;Database=Service;Uid=root;Pwd=root;CharSet=utf8;", ServerVersion.AutoDetect("Server=127.0.0.1;Port=3306;Database=Service;Uid=root;Pwd=root;CharSet=utf8;"));
         }
+        
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -39,13 +43,7 @@ namespace Data.ContextClasses
             //shadow property
             modelBuilder.Entity<Ticket>().Property<DateTime>("CreatedDate");
             modelBuilder.Entity<User>().Property<DateTime>("CreatedDate");
-
-            //User ile LoginUser one-to-one yaptığım kısım
-
-            modelBuilder.Entity<User>()
-                .HasOne<LoginUser>(u => u.LoginUser)
-                .WithOne(ul => ul.User)
-                .HasForeignKey<LoginUser>(ul => ul.LoginUserId);
+            modelBuilder.Entity<UserTicket>().Property<DateTime>("CreatedDate");
 
 
         }

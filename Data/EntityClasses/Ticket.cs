@@ -11,15 +11,15 @@ namespace Data.EntityClasses
 {
     public class Ticket
     {
-        [JsonIgnore]
+        
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key,Column(Order = 0)]
-        public int TicketId { get; set; }
+        public int TicketId { get; private set; }
         public bool TicketState { get; set; }
         public string TicketTitle { get; set; }
         public string Description { get; set; }
 
-        [JsonIgnore]
-        public IList<UserTicket>? UserTickets { get; set; }
+        
+        public ICollection<UserTicket>? UserTickets { get; private set; }
     }
 }

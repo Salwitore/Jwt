@@ -11,10 +11,8 @@ namespace Data.EntityClasses
     {
         
         public int UserId { get; set; }
-        [JsonIgnore]
-        public User? User { get; set; }
+        public  User? User { get; private set; }
         public int TicketId { get; set; }
-        [JsonIgnore]
-        public Ticket? Ticket { get; set; }
+        public  Ticket? Ticket { get; private set; }
     }
 }

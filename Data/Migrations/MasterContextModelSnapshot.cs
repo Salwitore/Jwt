@@ -19,29 +19,6 @@ namespace Data.Migrations
                 .HasAnnotation("ProductVersion", "6.0.9")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("Data.EntityClasses.LoginUser", b =>
-                {
-                    b.Property<int>("LoginUserId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnOrder(0);
-
-                    b.Property<string>("LoginUserName")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("LoginUserPassword")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("LoginUserId");
-
-                    b.ToTable("LoginUsers");
-                });
-
             modelBuilder.Entity("Data.EntityClasses.Ticket", b =>
                 {
                     b.Property<int>("TicketId")
@@ -72,8 +49,7 @@ namespace Data.Migrations
                 {
                     b.Property<int>("UserId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnOrder(0);
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime(6)");
@@ -89,6 +65,10 @@ namespace Data.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("UserPassword")
                         .IsRequired()
                         .HasColumnType("longtext");
 
@@ -109,22 +89,14 @@ namespace Data.Migrations
                     b.Property<int>("TicketId")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime(6)");
+
                     b.HasKey("UserId", "TicketId");
 
                     b.HasIndex("TicketId");
 
                     b.ToTable("UserTickets");
-                });
-
-            modelBuilder.Entity("Data.EntityClasses.LoginUser", b =>
-                {
-                    b.HasOne("Data.EntityClasses.User", "User")
-                        .WithOne("LoginUser")
-                        .HasForeignKey("Data.EntityClasses.LoginUser", "LoginUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Data.EntityClasses.UserTicket", b =>
@@ -153,8 +125,6 @@ namespace Data.Migrations
 
             modelBuilder.Entity("Data.EntityClasses.User", b =>
                 {
-                    b.Navigation("LoginUser");
-
                     b.Navigation("UserTickets");
                 });
 #pragma warning restore 612, 618
